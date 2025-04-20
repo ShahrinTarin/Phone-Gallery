@@ -1,12 +1,14 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getCarts, removeCart } from '../utilities';
 import EmptyPage from '../pages/emptypage/EmptyPage';
 import PhonesCard from '../Component/PhonesCard/PhonesCard';
+import { CartContext } from '../providers/Contexts';
+
 
 
 
 const Cart = () => {
-    
+    const { cart, setCart } = useContext(CartContext)
     const [displayPhones, setDisplayPhones] = useState([])
 
     useEffect(() => {
@@ -16,6 +18,8 @@ const Cart = () => {
 
     const handleDelete = id => {
         removeCart(id)
+        const restCart = cart.filter(singleCart => singleCart.id != id)
+        setCart(restCart)
         setDisplayPhones(getCarts())
     }
 

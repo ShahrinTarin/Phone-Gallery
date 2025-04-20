@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { Link, NavLink } from 'react-router';
 import { MdBookmarkAdd, MdShoppingCart } from "react-icons/md";
 import { CartContext } from '../../providers/Contexts';
 
 const Navbar = () => {
-    const { cart } = useContext(CartContext)
+    const { cart} = useContext(CartContext)
     return (
         <div className="navbar p-0 bg-base-100 shadow-sm mx-auto px-8 md:px-12 lg:px-16 xl:px-24">
             <div className="navbar-start py-2 md:py-0">
