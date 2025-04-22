@@ -4,10 +4,10 @@ import { getCarts } from '../utilities'
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
-  const storedCart=getCarts()
-  useEffect(()=>{
+  const storedCart = getCarts()
+  useEffect(() => {
     setCart(storedCart)
-  },[storedCart.length])
+  }, [storedCart.length])
   return (
     <CartContext.Provider value={{ cart, setCart }}>
       {children}
